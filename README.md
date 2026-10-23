@@ -1,34 +1,41 @@
-# Personal CV Website
+# May Antonette Alterado — Digital Bloom Portfolio
 
-Name:
-MAY ANTONETTE A. ALTERADO
+A personal portfolio for May Antonette A. Alterado, a Bachelor of Science in Information Technology undergraduate. Digital Bloom brings together technology, organization, and growth in a warm editorial design.
 
-Year Level:
-4th Year
+## Features
 
-Set/Section: C
+- Responsive portfolio with accessible desktop and mobile navigation
+- Digital Bloom design system and reduced-motion support
+- Education and honest, categorized skills
+- Clearly labeled project placeholders
+- Experience & involvement preparation state
+- Validated contact form that prepares an email draft
+- Dedicated printable A4 CV
 
-Subject: APPLICATION DEVELOPING AND EMERGING TECHNOLOGIES
+## Built With
 
-## About the Project
+- HTML5
+- CSS3
+- Vanilla JavaScript
 
-This repository contains my personal CV webpage created for our GitHub repository activity. The website presents my personal profile, education, skills, and contact information using HTML, CSS, and JavaScript.
+## Running Locally
 
-## Technologies Used
+Open `index.html` directly, or serve this folder with Live Server. There is no installation or build step. Fonts use Google Fonts with local system fallbacks when offline.
 
-- HTML
-- CSS
-- JavaScript
+Open `cv.html` to view the CV. Choose **Print / Save as PDF** to print it or save a PDF through your browser. The Download CV links open this print view; no pre-generated PDF is claimed.
 
-## Project Structure
+The contact form validates and trims all fields, then opens a `mailto:` draft. An email application must be configured, and the visitor must review and send the draft. This static site does not deliver or store messages.
 
-- `index.html` — Contains the structure and content of the webpage.
-- `style.css` — Contains the design and styling of the webpage.
-- `script.js` — Contains interactive features of the webpage.
-- `assets/` — Contains images used in the website.
+## Deployment
 
-## How to Run
+Deploy the repository root to Vercel as a static site. The existing `vercel.json` requires no framework or build command. For GitHub Pages, publish the repository root from the desired branch. All local asset paths are relative and support a repository subpath.
 
-1. Download or clone this repository.
-2. Open the project folder and place my portrait at `assets/profile.jpeg`.
-3. Open `index.html` using a web browser.
+After selecting a production domain, add a canonical link and matching `og:url` in `index.html`. No unverified preview image or domain is configured.
+
+## Updating Content
+
+Edit personal details in `index.html` and `cv.html` together. Replace the clearly labeled project cards at the `ADD VERIFIED PROJECT HERE` comments only when details are verified. Add confirmed activities to Experience & Involvement. Keep the portrait at `assets/profile.jpeg`.
+
+## Academic Context
+
+Created for Application Developing and Emerging Technologies; original academic record: 4th Year, Set/Section C. The public portfolio uses Undergraduate status without assuming a graduation date.
