@@ -11,5 +11,3 @@ createRoot(document.getElementById("root")).render(
     </MotionConfig>
   </React.StrictMode>,
 );
-// IT415 preview-only exercise: intentionally missing stylesheet.
-import "./module3-missing-stylesheet.css";
