@@ -311,13 +311,8 @@ svg {
   font-size: 24px;
   font-weight: 800;
   background: linear-gradient(130deg, #78bc9b16, #9680d414);
-  letter-spacing: -0.1em;
-}
-.brand-monogram > span {
-  position: absolute;
-  right: 7px;
-  bottom: 4px;
-  color: var(--accent);
+  letter-spacing: 0;
+  line-height: 1;
 }
 .brand-wordmark {
   font-weight: 800;
@@ -1954,10 +1949,6 @@ svg {
     width: 31px;
     height: 31px;
     font-size: 22px;
-  }
-  .brand-monogram > span {
-    right: 6px;
-    bottom: 2px;
   }
   .command-trigger {
     display: none;

@@ -92,9 +92,7 @@ export default function Layout({ children, onCommand, path }) {
         }}
       >
         <a href="/" className="brand" aria-label="Antonette home">
-          <span className="brand-monogram">
-            a<span>.</span>
-          </span>
+          <span className="brand-monogram" aria-hidden="true">@</span>
           <span className="brand-wordmark">
             antonette<span>.</span>
           </span>
