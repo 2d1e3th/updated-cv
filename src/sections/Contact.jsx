@@ -119,7 +119,7 @@ export default function Contact() {
             <MapPin size={14} aria-hidden="true" />
             {profile.location}
           </p>
-          <SocialLinks />
+          <SocialLinks includeEmail={false} />
           <p className="contact-signoff">
             Every good collaboration starts
             <br />

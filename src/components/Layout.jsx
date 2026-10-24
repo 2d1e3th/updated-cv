@@ -8,7 +8,6 @@ import {
 import { ArrowUpRight, Menu, X, Command, Flower2 } from "lucide-react";
 import { chapters } from "../data/profile";
 import { useChapter } from "../hooks/useChapter";
-import { SocialLinks } from "./Shared";
 
 export default function Layout({ children, onCommand }) {
   const active = useChapter();
@@ -168,7 +167,6 @@ export default function Layout({ children, onCommand }) {
             ANTONETTE<span>.</span>
           </a>
           <p>Learning. Organizing. Creating.</p>
-          <SocialLinks />
         </div>
         <div className="footer-meta">
           <span>© {new Date().getFullYear()} May Antonette A. Alterado</span>

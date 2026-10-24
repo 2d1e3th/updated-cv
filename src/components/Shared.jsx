@@ -29,17 +29,19 @@ export function SectionHeading({ number, eyebrow, title, children }) {
     </div>
   );
 }
-export function SocialLinks() {
+export function SocialLinks({ includeEmail = true }) {
   const icons = { GitHub: Github, LinkedIn: Linkedin, Email: Mail };
+  const visibleSocials = socials.filter(
+    ({ label }) => includeEmail || label !== "Email",
+  );
   return (
     <div className="social-links">
-      {socials.map(({ label, url }) => {
+      {visibleSocials.map(({ label, url }) => {
         const Icon = icons[label] || ArrowUpRight;
         return (
           <a key={label} href={url}>
             <Icon size={15} aria-hidden="true" />
             {label}
-            <ArrowUpRight size={12} aria-hidden="true" />
           </a>
         );
       })}

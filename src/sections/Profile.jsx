@@ -207,9 +207,6 @@ export function About() {
           <p>CAREER INTERESTS</p>
           <Tags items={interests} />
         </div>
-        <div className="mt-5">
-          <SocialLinks />
-        </div>
       </Reveal>
     </section>
   );
