@@ -45,7 +45,7 @@ export function Profile() {
         >
           <p className="availability">
             <span />
-            Open to learning &amp; opportunities
+            Open to internships &amp; collaboration
           </p>
           <h1 id="profile-title">
             Hi, I’m

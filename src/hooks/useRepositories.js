@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { repositoryFallback, repositoryPriority } from "../data/repositories";
+import { githubUsername, githubRepositoriesUrl } from "../config/site";
 
 export function selectRepositories(data) {
   if (!Array.isArray(data)) throw new Error("Invalid GitHub response");
-  const excluded = new Set(["2d1e3th", "for-dhal", "confession-webpage"]);
+  const excluded = new Set([githubUsername, "for-dhal", "confession-webpage"]);
   const rank = (name) => {
     const i = repositoryPriority.indexOf(name);
     return i < 0 ? 99 : i;
@@ -14,7 +15,7 @@ export function selectRepositories(data) {
       !repo.archived &&
       !excluded.has(repo.name) &&
       typeof repo.name === "string" &&
-      /^https:\/\/github\.com\/2d1e3th\//.test(repo.html_url || ""),
+      (repo.html_url || "").startsWith(`https://github.com/${githubUsername}/`),
   );
   return repositories
     .sort(
@@ -36,7 +37,7 @@ export default function useRepositories() {
     async function load() {
       try {
         const response = await fetch(
-          "https://api.github.com/users/2d1e3th/repos?per_page=100",
+          githubRepositoriesUrl,
           {
             signal: controller.signal,
             headers: { Accept: "application/vnd.github+json" },
