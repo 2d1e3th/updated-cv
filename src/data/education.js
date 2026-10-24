@@ -16,7 +16,7 @@ export const previousEducation = [
   {
     id: "elementary",
     level: "Elementary",
-    institution: "Southern Davao National High School",
+    institution: "Southern Davao Elementary School",
     years: "2011–2016",
   },
 ];
