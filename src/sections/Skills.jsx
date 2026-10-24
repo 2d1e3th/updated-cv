@@ -56,7 +56,7 @@ export default function Skills() {
               <path
                 key={d}
                 d={d}
-                stroke={active === i ? "#654b68" : "#cfc6cd"}
+                stroke={active === i ? "var(--accent)" : "var(--line)"}
                 strokeWidth={active === i ? 1.6 : 1}
               />
             ))}

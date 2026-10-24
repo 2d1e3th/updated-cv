@@ -1,18 +1,25 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowUpRight, Search, CornerDownLeft, Command } from "lucide-react";
-import { chapters, socials } from "../data/profile";
+import { socials } from "../data/profile";
 import Dialog from "./Dialog";
 
 const commands = [
-  ...chapters.map((chapter) => ({
-    label: chapter.id === "profile" ? "View Profile" : chapter.label,
-    url: `/#${chapter.id}`,
-    type: "CHAPTER",
-  })),
+  { label: "Home", url: "/", type: "PAGE" },
+  { label: "About", url: "/about", type: "PAGE" },
+  { label: "Education", url: "/about#education", type: "SECTION" },
+  { label: "Skills", url: "/about#skills", type: "SECTION" },
+  { label: "Projects", url: "/works", type: "PAGE" },
+  { label: "Certificates & Milestones", url: "/certificates", type: "PAGE" },
+  { label: "Experience", url: "/about#experience", type: "SECTION" },
+  { label: "Contact", url: "/contact", type: "PAGE" },
   ...socials
     .filter((s) => s.label !== "Email")
     .map((s) => ({ label: `Open ${s.label}`, url: s.url, type: "EXTERNAL" })),
-  { label: "View CV", url: "/documents/May-Antonette-Alterado-CV.pdf", type: "DOCUMENT" },
+  {
+    label: "View CV",
+    url: "/documents/May-Antonette-Alterado-CV.pdf",
+    type: "DOCUMENT",
+  },
 ];
 export default function CommandPalette({ open, onClose }) {
   const [query, setQuery] = useState("");
@@ -40,34 +47,25 @@ export default function CommandPalette({ open, onClose }) {
   function select(command) {
     if (!command) return;
     onClose();
-    if (command.url.startsWith("/#")) {
-      const id = command.url.slice(2);
-      history.pushState(null, "", `#${id}`);
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({
-          behavior: matchMedia("(prefers-reduced-motion:reduce)").matches
-            ? "instant"
-            : "smooth",
-        });
-        section.tabIndex = -1;
-        section.focus({ preventScroll: true });
-      }
+    if (command.url.startsWith("/") && !command.url.startsWith("/documents/")) {
+      history.pushState({}, "", command.url);
+      dispatchEvent(new PopStateEvent("popstate"));
     } else window.location.assign(command.url);
   }
+
   return (
     <Dialog
       open={open}
       onClose={onClose}
-      title="Fieldbook command palette"
+      title="Portfolio command palette"
       className="command-dialog"
     >
       <div className="command-heading">
         <Command size={18} strokeWidth={1.3} aria-hidden="true" />
-        <p className="eyebrow">FIND YOUR NEXT CHAPTER</p>
+        <p className="eyebrow">WHERE WOULD YOU LIKE TO GO?</p>
       </div>
       <label className="sr-only" htmlFor="command-search">
-        Search chapters and links
+        Search pages and links
       </label>
       <div className="command-search">
         <Search size={19} strokeWidth={1.3} aria-hidden="true" />
@@ -76,7 +74,7 @@ export default function CommandPalette({ open, onClose }) {
           id="command-search"
           autoComplete="off"
           value={query}
-          placeholder="Where would you like to go?"
+          placeholder="Search the portfolio…"
           role="combobox"
           aria-expanded={true}
           aria-controls="command-options"
@@ -134,7 +132,7 @@ export default function CommandPalette({ open, onClose }) {
       </ul>
       {!options.length && (
         <p className="command-empty">
-          No matching chapter. Try “projects” or “CV”.
+          No matching page. Try “projects” or “CV”.
         </p>
       )}
       <div className="command-footer">

@@ -22,21 +22,6 @@ export const socials = [
   { label: "Instagram", url: "" },
 ].filter((social) => social.url);
 
-export const chapters = [
-  ["profile", "Profile"],
-  ["about", "About"],
-  ["education", "Education"],
-  ["skills", "Skills"],
-  ["projects", "Projects"],
-  ["achievements", "Achievements"],
-  ["experience", "Experience"],
-  ["contact", "Contact"],
-].map(([id, label], index) => ({
-  id,
-  label,
-  number: String(index + 1).padStart(2, "0"),
-}));
-
 export const qualities = [
   "Detail-Oriented",
   "Organized",

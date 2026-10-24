@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ArrowUpRight, Mail, MapPin, Sprout } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { profile } from "../data/profile";
 import { Reveal, SocialLinks } from "../components/Shared";
 
@@ -93,17 +93,9 @@ export default function Contact() {
     >
       <Reveal className="contact-grid">
         <div>
-          <p className="eyebrow">08 / THE NEXT CHAPTER</p>
+          <p className="eyebrow">CONTACT INFORMATION</p>
           <h2 id="contact-title">
-            Leave
-            <br />
-            <em>a note.</em>
-            <Sprout
-              size={55}
-              strokeWidth={1}
-              className="contact-sprout"
-              aria-hidden="true"
-            />
+            Leave a <em>note.</em>
           </h2>
           <p className="contact-intro">
             I’m open to internships, collaborative projects, learning

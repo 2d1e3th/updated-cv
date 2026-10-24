@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Github, Linkedin, Mail, Sprout } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { socials } from "../data/profile";
 
 export function Reveal({ children, className = "", delay = 0 }) {
@@ -47,9 +47,6 @@ export function SocialLinks({ includeEmail = true }) {
       })}
     </div>
   );
-}
-export function Bloom({ className = "" }) {
-  return <Sprout className={className} strokeWidth={1} aria-hidden="true" />;
 }
 export function Tags({ items }) {
   return (

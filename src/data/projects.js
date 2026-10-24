@@ -3,12 +3,12 @@
 export const projects = [
   {
     id: "digital-fieldbook",
-    name: "The Digital Fieldbook",
+    name: "Personal CV Portfolio",
     category: "PERSONAL PORTFOLIO / WEB",
     description:
-      "An editorial CV and portfolio bringing together my profile, working toolkit, and growing collection of work.",
+      "An interactive CV and portfolio bringing together my profile, working toolkit, and growing collection of work.",
     overview:
-      "A redesign of my existing personal CV repository into an interactive fieldbook, prepared for academic presentation and professional opportunities.",
+      "A redesign of my existing personal CV repository into an interactive portfolio, prepared for academic presentation and professional opportunities.",
     problem:
       "Bring scattered profile, skills, and academic information into one clear, accessible place that can grow with me.",
     contribution:
@@ -25,6 +25,6 @@ export const projects = [
     demo: null,
     screenshot: "/assets/fieldbook-preview.webp",
     screenshotAlt:
-      "Desktop preview of the Digital Fieldbook portfolio with an editorial heading and portrait",
+      "Desktop preview of Antonette’s portfolio with a personal introduction and portrait",
   },
 ];

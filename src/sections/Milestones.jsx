@@ -29,7 +29,7 @@ export function Achievements() {
             eyebrow="SMALL STEPS. MEANINGFUL GROWTH."
             title={
               <>
-                Milestones <em>&amp; Credentials.</em>
+                Learning, <em>made visible.</em>
               </>
             }
           >

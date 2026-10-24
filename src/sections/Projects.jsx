@@ -11,8 +11,9 @@ import { projects } from "../data/projects";
 import Dialog from "../components/Dialog";
 import { Reveal, SectionHeading, Tags } from "../components/Shared";
 
-export default function Projects() {
+export default function Projects({ featured = false }) {
   const [selected, setSelected] = useState(null);
+  const ProjectTitle = featured ? "h3" : "h2";
   return (
     <section
       id="projects"
@@ -22,23 +23,36 @@ export default function Projects() {
     >
       <div className="page-width section-space">
         <Reveal>
-          <SectionHeading
-            number="05"
-            eyebrow="THOUGHTS TAKING SHAPE"
-            title={
-              <>
-                Work in Progress
-                <br />
-                <em>&amp; Selected Projects.</em>
-              </>
-            }
-          >
-            <p>
-              Case files from a growing practice.
-              <br />
-              Real work, with room to develop.
-            </p>
-          </SectionHeading>
+          {featured && (
+            <SectionHeading
+              number="05"
+              eyebrow="A GROWING BODY OF WORK"
+              title={
+                <>
+                  {featured ? (
+                    <>
+                      Featured <em>project.</em>
+                    </>
+                  ) : (
+                    <>
+                      My recent <em>work.</em>
+                    </>
+                  )}
+                </>
+              }
+            >
+              {featured ? (
+                <a className="text-link" href="/works">
+                  View all work <ArrowUpRight size={15} aria-hidden="true" />
+                </a>
+              ) : (
+                <p>
+                  Verified project details, personal contributions, and work in
+                  progress.
+                </p>
+              )}
+            </SectionHeading>
+          )}
           {projects.map((project, index) => (
             <motion.article layout className="case-file" key={project.id}>
               <div className="case-file-image">
@@ -60,7 +74,7 @@ export default function Projects() {
               </div>
               <div className="case-file-copy">
                 <p className="eyebrow">{project.category}</p>
-                <h3>{project.name}</h3>
+                <ProjectTitle>{project.name}</ProjectTitle>
                 <p>{project.description}</p>
                 <span className="status-label">
                   <span className="small-dot" />
@@ -81,17 +95,19 @@ export default function Projects() {
               </div>
             </motion.article>
           ))}
-          <div className="future-case">
-            <FileText size={24} strokeWidth={1} aria-hidden="true" />
-            <div>
-              <h3>The next chapter is being prepared.</h3>
-              <p>
-                Further academic and collaborative case studies will be added
-                once the project details and my contributions are verified.
-              </p>
+          {!featured && (
+            <div className="future-case">
+              <FileText size={24} strokeWidth={1} aria-hidden="true" />
+              <div>
+                <h3>The next chapter is being prepared.</h3>
+                <p>
+                  Further academic and collaborative case studies will be added
+                  once the project details and my contributions are verified.
+                </p>
+              </div>
+              <span>OPEN ENDED / ALWAYS GROWING</span>
             </div>
-            <span>OPEN ENDED / ALWAYS GROWING</span>
-          </div>
+          )}
         </Reveal>
       </div>
       <Dialog

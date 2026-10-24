@@ -14,13 +14,17 @@ export default function CV() {
       <div className="cv-controls">
         <a href="/">
           <ArrowLeft size={15} aria-hidden="true" />
-          Back to Fieldbook
+          Back to Portfolio
         </a>
         <button className="button" onClick={() => window.print()}>
           <Printer size={16} aria-hidden="true" />
           Print / Save as PDF
         </button>
-        <a className="text-link" href="/documents/May-Antonette-Alterado-CV.pdf" download="May-Antonette-Alterado-CV.pdf">
+        <a
+          className="text-link"
+          href="/documents/May-Antonette-Alterado-CV.pdf"
+          download="May-Antonette-Alterado-CV.pdf"
+        >
           Download original CV (PDF)
         </a>
       </div>

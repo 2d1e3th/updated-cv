@@ -1,24 +1,48 @@
 import { useEffect, useRef, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-  useScroll,
-} from "framer-motion";
-import { ArrowUpRight, Menu, X, Command, Flower2 } from "lucide-react";
-import { chapters } from "../data/profile";
-import { useChapter } from "../hooks/useChapter";
+  ArrowUpRight,
+  Menu,
+  X,
+  Command,
+  Sun,
+  Moon,
+  ArrowRight,
+} from "lucide-react";
+import { profile } from "../data/profile";
 
-export default function Layout({ children, onCommand }) {
-  const active = useChapter();
+const navigation = [
+  ["/", "Home"],
+  ["/about", "About"],
+  ["/works", "Works"],
+  ["/certificates", "Certificates"],
+];
+export default function Layout({ children, onCommand, path }) {
   const [menu, setMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const header = useRef(null);
-  const toggle = useRef(null);
-  const reduce = useReducedMotion();
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("antonette-theme") || "dark";
+    } catch {
+      return "dark";
+    }
+  });
+  const header = useRef(null),
+    toggle = useRef(null);
   const { scrollYProgress } = useScroll();
   useEffect(() => {
-    const update = () => setScrolled(scrollY > 24);
+    document.documentElement.dataset.theme = theme;
+    try {
+      localStorage.setItem("antonette-theme", theme);
+    } catch {
+      /* Storage is optional. */
+    }
+  }, [theme]);
+  useEffect(() => {
+    setMenu(false);
+  }, [path]);
+  useEffect(() => {
+    const update = () => setScrolled(scrollY > 15);
     const close = (event) => {
       if (
         event.type === "keydown" &&
@@ -26,15 +50,16 @@ export default function Layout({ children, onCommand }) {
         toggle.current?.getAttribute("aria-expanded") === "true"
       ) {
         setMenu(false);
-        toggle.current?.focus();
-      } else if (
+        toggle.current.focus();
+      }
+      if (
         event.type === "pointerdown" &&
         !header.current?.contains(event.target)
       )
         setMenu(false);
     };
     const resize = () => {
-      if (innerWidth > 1000) setMenu(false);
+      if (innerWidth > 800) setMenu(false);
     };
     update();
     addEventListener("scroll", update, { passive: true });
@@ -66,27 +91,40 @@ export default function Layout({ children, onCommand }) {
             setMenu(false);
         }}
       >
-        <a className="brand" href="/#profile" onClick={() => setMenu(false)}>
-          ANTONETTE<span>.</span>
+        <a href="/" className="brand" aria-label="Antonette home">
+          <span className="brand-monogram">
+            a<span>.</span>
+          </span>
+          <span className="brand-wordmark">
+            antonette<span>.</span>
+          </span>
         </a>
         <nav
-          className={`header-nav ${menu ? "open" : ""}`}
           id="header-navigation"
           aria-label="Main navigation"
+          className={`header-nav ${menu ? "open" : ""}`}
         >
-          {chapters.slice(1, 7).map((chapter, index) => (
+          {navigation.map(([url, label]) => (
             <a
-              key={chapter.id}
-              href={`#${chapter.id}`}
-              aria-current={active === index + 1 ? "location" : undefined}
+              key={url}
+              href={url}
+              aria-current={path === url ? "page" : undefined}
               onClick={() => setMenu(false)}
             >
-              {chapter.label}
+              {label}
+              {path === url && (
+                <motion.span
+                  layoutId="active-nav"
+                  className="active-nav-dot"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
             </a>
           ))}
           <a
             className="mobile-contact"
-            href="#contact"
+            href="/contact"
+            aria-current={path === "/contact" ? "page" : undefined}
             onClick={() => setMenu(false)}
           >
             Contact
@@ -94,116 +132,73 @@ export default function Layout({ children, onCommand }) {
         </nav>
         <div className="header-actions">
           <button
-            className="command-trigger"
+            className="command-trigger icon-button"
             onClick={onCommand}
             aria-label="Open command palette"
           >
-            <Command size={14} aria-hidden="true" />
+            <Command size={15} />
             <span>K</span>
           </button>
-          <a className="button button-small" href="/documents/May-Antonette-Alterado-CV.pdf">
-            View CV <ArrowUpRight size={14} aria-hidden="true" />
+          <a
+            className="button button-small"
+            href="/contact"
+            aria-current={path === "/contact" ? "page" : undefined}
+          >
+            Contact me <ArrowUpRight size={14} aria-hidden="true" />
           </a>
           <button
+            className="icon-button theme-toggle"
+            onClick={() =>
+              setTheme((previous) => (previous === "dark" ? "light" : "dark"))
+            }
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
             ref={toggle}
-            className="menu-toggle"
+            className="menu-toggle icon-button"
+            aria-label={menu ? "Close navigation" : "Open navigation"}
             aria-controls="header-navigation"
             aria-expanded={menu}
-            aria-label={menu ? "Close navigation" : "Open navigation"}
             onClick={() => {
-              const opening = !menu;
-              setMenu(opening);
-              if (opening) {
-                requestAnimationFrame(() => {
-                  header.current?.querySelector("nav a")?.focus();
-                });
-              }
+              setMenu(!menu);
+              if (!menu)
+                requestAnimationFrame(() =>
+                  header.current?.querySelector("nav a")?.focus(),
+                );
             }}
           >
             {menu ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </header>
-      <aside className="field-rail" aria-label="Field notes chapters">
-        <p>FIELD NOTES</p>
-        <ol>
-          {chapters.map((chapter, index) => (
-            <li key={chapter.id} className={index <= active ? "visited" : ""}>
-              <a
-                href={`#${chapter.id}`}
-                aria-current={index === active ? "location" : undefined}
-              >
-                <span className="rail-number">{chapter.number}</span>
-                <span className="rail-node">
-                  {index === active ? (
-                    <Flower2 size={17} strokeWidth={1.4} />
-                  ) : (
-                    <i />
-                  )}
-                </span>
-                <span className="rail-label">{chapter.label}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-        <span className="rail-bottom">A WORK IN GROWTH</span>
-      </aside>
-      <div className="chapter-mobile" aria-label="Current chapter">
-        <span>FIELD NOTES</span>
-        <span>
-          {chapters[active].number} / {chapters[active].label}
-        </span>
-      </div>
-      <div className="growth-path" aria-hidden="true">
-        <motion.div style={{ scaleY: reduce ? 1 : scrollYProgress }} />
-        {[2, 3, 4, 5, 6].map((n) => (
-          <i key={n} style={{ top: `${(n - 1) * 16}%` }} />
-        ))}
-      </div>
       <main id="main">{children}</main>
       <footer className="page-footer page-width">
         <div className="footer-main">
-          <a className="brand" href="#profile">
-            ANTONETTE<span>.</span>
+          <div>
+            <a className="footer-name" href="/">
+              May Antonette A. Alterado<span>.</span>
+            </a>
+            <p>
+              Organizing ideas. Exploring technology.
+              <br />
+              Building what comes next.
+            </p>
+          </div>
+          <a href="/contact" className="footer-contact">
+            Let’s connect{" "}
+            <ArrowUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
           </a>
-          <p>Learning. Organizing. Creating.</p>
         </div>
         <div className="footer-meta">
           <span>© {new Date().getFullYear()} May Antonette A. Alterado</span>
-          <span>THE DIGITAL FIELDBOOK / ALWAYS GROWING</span>
-          <a href="#profile">Back to the beginning ↑</a>
+          <span>Based in {profile.location}</span>
+          <a href="/documents/May-Antonette-Alterado-CV.pdf">
+            View CV <ArrowRight size={13} aria-hidden="true" />
+          </a>
         </div>
       </footer>
     </>
-  );
-}
-
-export function EntryNote() {
-  const reduce = useReducedMotion();
-  const [visible, setVisible] = useState(!reduce);
-  useEffect(() => {
-    if (reduce) {
-      setVisible(false);
-      return;
-    }
-    const timer = setTimeout(() => setVisible(false), 800);
-    return () => clearTimeout(timer);
-  }, [reduce]);
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          aria-hidden="true"
-          className="entry-note"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <p className="eyebrow">FIELD NOTE 001</p>
-          <p>MAY ANTONETTE A. ALTERADO</p>
-          <span>Opening the fieldbook</span>
-        </motion.div>
-      )}
-    </AnimatePresence>
   );
 }
