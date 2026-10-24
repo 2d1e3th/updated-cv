@@ -15,7 +15,7 @@ export default function CV() {
       <div className="cv-controls">
         <a href="/">
           <ArrowLeft size={15} aria-hidden="true" />
-          Back to Portfolio
+          Back to Home
         </a>
         <button className="button" onClick={() => window.print()}>
           <Printer size={16} aria-hidden="true" />

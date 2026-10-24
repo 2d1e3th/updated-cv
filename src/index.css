@@ -2526,3 +2526,38 @@ svg {
     max-width: 360px;
   }
 }
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  margin-bottom: 22px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+.back-home:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.close-personal-photos {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+}
+.close-personal-photos:hover {
+  color: var(--text);
+}
