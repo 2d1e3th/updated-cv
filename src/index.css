@@ -270,3 +270,10 @@ body:has(.growth-path) { position:relative; isolation:isolate; }
 .case-links { display:flex; flex-wrap:wrap; align-items:center; gap:25px; border-top:1px solid var(--line); margin-top:35px; padding-top:25px; }.case-links>p { font-size:11px; }
 @media(max-width:1000px) { .case-file-copy { padding:28px; }.case-file-copy h3 { font-size:29px; }.case-file-image { padding-inline:22px; }.future-case>span { display:none; } }
 @media(max-width:700px) { .case-file { grid-template-columns:1fr; }.case-file-image { padding:45px 30px 30px; }.case-file-copy { padding:28px; }.future-case { align-items:flex-start; }.field-dialog { width:100%; height:100dvh; max-height:100dvh; border:0; }.dialog-inner { padding:65px 24px 35px; }.case-dialog h2 { font-size:36px; }.case-detail-grid { grid-template-columns:1fr; }.case-detail-grid p { font-size:14px; } }
+.github-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:30px; margin-bottom:25px; }
+.github-status { font-size:11px; margin-bottom:25px; color:var(--aubergine); }
+.repo-list { border-top:1px solid var(--line); }
+.repo-row { display:grid; grid-template-columns:30px minmax(0,1fr) 170px 20px; gap:25px; align-items:center; border-bottom:1px solid var(--line); padding:27px 10px; transition:background .2s; }
+.repo-row:hover { background:var(--canvas); }
+.repo-number { font-size:10px; color:var(--mauve); }.repo-row h3 { font-size:16px; font-weight:600; overflow-wrap:anywhere; }.repo-row p { font-size:12px; margin-top:7px; }.repo-meta { display:flex; flex-direction:column; gap:5px; font-size:10px; color:var(--muted); }.repo-meta>span:first-child { display:flex; align-items:center; gap:7px; }.repo-note { margin-top:20px; font-size:11px; max-width:660px; }
+@media(max-width:700px) { .github-heading { display:block; }.github-heading>a { margin-top:20px; }.repo-row { grid-template-columns:22px minmax(0,1fr) 18px; gap:12px; padding:22px 0; }.repo-row h3 { font-size:15px; }.repo-meta { grid-column:2; grid-row:2; flex-direction:row; gap:15px; flex-wrap:wrap; }.repo-row>svg { grid-column:3; grid-row:1; } }
