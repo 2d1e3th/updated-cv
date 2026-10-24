@@ -1,3 +1,5 @@
+import Layout, { EntryNote } from './components/Layout';
+import { Profile, About, Education } from './sections/Profile';
 export default function App() {
-  return <main className="p-12"><h1>The Digital Fieldbook</h1><p>May Antonette A. Alterado</p></main>;
+  return <><EntryNote /><Layout><Profile /><About /><Education /></Layout></>;
 }
