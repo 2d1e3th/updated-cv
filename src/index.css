@@ -243,3 +243,30 @@ body:has(.growth-path) { position:relative; isolation:isolate; }
 .small-dot { display:inline-block; width:5px; height:5px; background:var(--sage); border-radius:50%; flex-shrink:0; }
 @media(max-width:1000px) { .knowledge-map { grid-template-columns:1fr 125px 1fr; gap:25px 15px; } .map-center { width:105px; height:105px; }.map-center>span { font-size:9px; }.map-center>small{font-size:6px;}.skill-cluster h3 button { font-size:14px; gap:10px; } .skill-cluster [role=region] { padding-left:5px; } }
 @media(max-width:700px) { .knowledge-map { display:block; min-height:0; padding:0; }.map-center,.map-connectors { display:none; }.skill-cluster { border-bottom:1px solid var(--line); border-top:0; padding:12px 0; }.skill-cluster.selected { border-top:0; }.skill-cluster h3 button { font-size:16px; }.skill-cluster [role=region] { padding:10px 10px 12px 49px; }.skill-cluster ul,.skill-cluster [role=region]>p { font-size:13px; } }
+.field-dialog { padding:0; background:var(--paper); color:var(--ink); border:1px solid var(--line); width:min(850px,calc(100% - 48px)); max-height:90dvh; margin:auto; overflow-y:auto; overscroll-behavior:contain; box-shadow:0 30px 100px #27232930; }
+.field-dialog::backdrop { background:#27232980; backdrop-filter:blur(5px); }
+.dialog-inner { position:relative; padding:50px; }
+.dialog-close { position:absolute; right:17px; top:17px; min-width:44px; min-height:44px; display:grid; place-items:center; border:1px solid var(--line); background:var(--paper); border-radius:50%; }
+.projects-section { background:#eae5eb; }
+.case-file { display:grid; grid-template-columns:1.2fr 1fr; background:var(--paper); border:1px solid #d0c7d1; margin-bottom:30px; }
+.case-file-image { min-width:0; padding:45px 30px 35px; background:#ddd4df; position:relative; display:flex; flex-direction:column; justify-content:center; }
+.case-file-image>img { width:100%; aspect-ratio:10/7; object-fit:cover; object-position:top; transform:rotate(-3deg); border:7px solid #fffdf8; box-shadow:0 8px 20px #27232912; }
+.case-index { position:absolute; top:17px; left:25px; display:flex; align-items:center; gap:8px; font-size:9px; letter-spacing:.1em; color:var(--aubergine); }
+.case-file-copy { padding:40px; display:flex; align-items:flex-start; flex-direction:column; }
+.case-file-copy h3 { font-family:'DM Serif Display',serif; font-size:35px; font-weight:400; line-height:1.15; margin-bottom:20px; }
+.case-file-copy>p:not(.eyebrow) { font-size:13px; margin-bottom:20px; }
+.case-file-copy .eyebrow { font-size:9px; }
+.case-file-copy .tags { margin-top:20px; margin-bottom:25px; }
+.case-file-copy .tags li { font-size:10px; }
+.case-open { display:flex; align-items:center; justify-content:space-between; gap:30px; width:100%; background:transparent; border:0; border-top:1px solid var(--line); min-height:50px; padding:15px 0 0; margin-top:auto; color:var(--aubergine); font-size:12px; font-weight:700; }
+.case-open:hover svg { transform:translate(2px,-2px); }
+.future-case { display:flex; gap:20px; align-items:center; border-top:1px solid #cec4d1; padding-top:25px; color:var(--aubergine); }
+.future-case h3 { font-size:14px; font-weight:500; margin-bottom:6px; }.future-case p { font-size:12px; max-width:560px; }.future-case>span { font-size:8px; letter-spacing:.12em; margin-left:auto; }
+.case-dialog h2 { font-size:45px; margin:10px 0 20px; padding-right:15px; }
+.case-detail-image { width:100%; margin-block:30px; border:1px solid var(--line); }
+.case-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:25px; }
+.case-detail-grid h3 { font-size:14px; margin-bottom:12px; }.case-detail-grid p { font-size:13px; }
+.case-detail-grid .tags { margin:0; }
+.case-links { display:flex; flex-wrap:wrap; align-items:center; gap:25px; border-top:1px solid var(--line); margin-top:35px; padding-top:25px; }.case-links>p { font-size:11px; }
+@media(max-width:1000px) { .case-file-copy { padding:28px; }.case-file-copy h3 { font-size:29px; }.case-file-image { padding-inline:22px; }.future-case>span { display:none; } }
+@media(max-width:700px) { .case-file { grid-template-columns:1fr; }.case-file-image { padding:45px 30px 30px; }.case-file-copy { padding:28px; }.future-case { align-items:flex-start; }.field-dialog { width:100%; height:100dvh; max-height:100dvh; border:0; }.dialog-inner { padding:65px 24px 35px; }.case-dialog h2 { font-size:36px; }.case-detail-grid { grid-template-columns:1fr; }.case-detail-grid p { font-size:14px; } }
