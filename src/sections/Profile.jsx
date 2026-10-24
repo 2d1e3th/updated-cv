@@ -2,6 +2,7 @@ import { BookOpen } from "lucide-react";
 import { profile, qualities, interests } from "../data/profile";
 import { previousEducation } from "../data/education";
 import { Reveal, Tags, SectionHeading } from "../components/Shared";
+import PersonalPhotos from "../components/PersonalPhotos";
 
 export function About() {
   const notes = [
@@ -76,6 +77,7 @@ export function About() {
           <Tags items={interests} />
         </div>
       </Reveal>
+      <PersonalPhotos />
     </section>
   );
 }
