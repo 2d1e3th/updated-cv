@@ -99,7 +99,8 @@ The existing Vercel project is connected to the GitHub `main` branch. Pushing co
 | `src/data/repositories.js` | Saved GitHub metadata and relevance ordering |
 | `src/data/achievements.js` | Verified credentials and categories |
 | `src/data/experience.js` | Verified involvement entries |
-| `src/sections/Profile.jsx` | About layout and pending Senior High School fields |
+| `src/data/education.js` | Senior High School track, school names, and education dates |
+| `src/sections/Profile.jsx` | About layout and academic timeline |
 | `src/sections/Home.jsx` | Homepage introduction, foundations, and strengths |
 | `src/hooks/useNavigation.js` | Page navigation, legacy bookmarks, and focus behavior |
 | `src/index.css` | Shared dark/light tokens, layouts, interactions, and print styles |

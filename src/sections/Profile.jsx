@@ -1,5 +1,6 @@
 import { BookOpen } from "lucide-react";
 import { profile, qualities, interests } from "../data/profile";
+import { previousEducation } from "../data/education";
 import { Reveal, Tags, SectionHeading } from "../components/Shared";
 
 export function About() {
@@ -123,23 +124,18 @@ export function Education() {
                 </p>
               </div>
             </article>
-            <article className="academic-entry">
-              <div>
-                <span className="eyebrow">DETAILS TO BE ADDED</span>
-              </div>
-              <div className="education-placeholder">
-                <h3>Senior High School</h3>
-                <p>
-                  Earlier chapters of my education will be added once the
-                  details are confirmed.
-                </p>
-                <div className="placeholder-fields">
-                  <span>School name — pending</span>
-                  <span>Track / strand — pending</span>
-                  <span>Years — pending</span>
+            {previousEducation.map((entry) => (
+              <article className="academic-entry" key={entry.id}>
+                <div>
+                  <span className="status-label">{entry.years}</span>
                 </div>
-              </div>
-            </article>
+                <div>
+                  <h3>{entry.level}</h3>
+                  <p className="institution">{entry.institution}</p>
+                  {entry.track && <p>Track: {entry.track}</p>}
+                </div>
+              </article>
+            ))}
           </div>
         </Reveal>
       </div>

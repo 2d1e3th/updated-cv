@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ArrowLeft, Printer } from "lucide-react";
 import { profile, toolkit, socials } from "../data/profile";
+import { previousEducation } from "../data/education";
 import { projects } from "../data/projects";
 import { achievements } from "../data/achievements";
 import { experience } from "../data/experience";
@@ -60,10 +61,14 @@ export default function CV() {
           <p>
             {profile.institution} · {profile.level}
           </p>
-          <p>
-            Senior High School: school, strand, and years to be added once
-            confirmed.
-          </p>
+          {previousEducation.map((entry) => (
+            <p key={entry.id}>
+              <strong>{entry.level}</strong>
+              {entry.track && ` · ${entry.track}`}
+              <br />
+              {entry.institution} · {entry.years}
+            </p>
+          ))}
         </section>
         <section>
           <h2>Skills</h2>

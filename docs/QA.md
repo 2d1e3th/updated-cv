@@ -17,7 +17,8 @@ Verified locally on 24 October 2026 using Vite and Microsoft Edge / Playwright.
 - Credentials register displays an honest empty state.
 - Contact validation rejects empty and whitespace-only values and invalid email addresses, trims input, and displays accurate draft feedback.
 - Original PDF served successfully as application/pdf, with unchanged 70,889-byte content.
-- HTML CV print controls are hidden; current content fits one A4 page.
+- HTML CV print controls are hidden; A4 print styles keep headings with their content.
+- Education now includes the three school entries and TVL-ICT track supplied by Antonette; the original uploaded PDF is retained separately.
 - Legacy bookmarks redirect to the matching new page and section.
 - Reduced-motion rendering and all five desktop/mobile page layouts reviewed.
 - No React/page errors during these checks.
