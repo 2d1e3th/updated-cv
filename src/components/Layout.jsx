@@ -102,7 +102,7 @@ export default function Layout({ children, onCommand }) {
             <Command size={14} aria-hidden="true" />
             <span>K</span>
           </button>
-          <a className="button button-small" href="/cv">
+          <a className="button button-small" href="/documents/May-Antonette-Alterado-CV.pdf">
             View CV <ArrowUpRight size={14} aria-hidden="true" />
           </a>
           <button

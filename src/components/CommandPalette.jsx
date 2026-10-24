@@ -12,7 +12,7 @@ const commands = [
   ...socials
     .filter((s) => s.label !== "Email")
     .map((s) => ({ label: `Open ${s.label}`, url: s.url, type: "EXTERNAL" })),
-  { label: "View CV", url: "/cv", type: "DOCUMENT" },
+  { label: "View CV", url: "/documents/May-Antonette-Alterado-CV.pdf", type: "DOCUMENT" },
 ];
 export default function CommandPalette({ open, onClose }) {
   const [query, setQuery] = useState("");

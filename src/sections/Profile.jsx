@@ -57,8 +57,11 @@ export function Profile() {
               <a className="button" href="#projects">
                 Explore My Work <ArrowUpRight size={16} aria-hidden="true" />
               </a>
-              <a className="text-link" href="/cv">
+              <a className="text-link" href="/documents/May-Antonette-Alterado-CV.pdf">
                 View CV <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+              <a className="text-link" href="/documents/May-Antonette-Alterado-CV.pdf" download="May-Antonette-Alterado-CV.pdf">
+                Download CV <ArrowDown size={15} aria-hidden="true" />
               </a>
             </div>
             <SocialLinks />

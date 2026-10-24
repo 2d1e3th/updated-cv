@@ -20,6 +20,9 @@ export default function CV() {
           <Printer size={16} aria-hidden="true" />
           Print / Save as PDF
         </button>
+        <a className="text-link" href="/documents/May-Antonette-Alterado-CV.pdf" download="May-Antonette-Alterado-CV.pdf">
+          Download original CV (PDF)
+        </a>
       </div>
       <main className="cv-document">
         <header>
