@@ -2,115 +2,120 @@
 
 ## About
 
-**The Digital Fieldbook** is an interactive professional journal for May Antonette A. Alterado. Its editorial notebook identity combines organized information, technology, and understated botanical growth.
+A responsive portfolio and CV for **May Antonette A. Alterado**, a Bachelor of Science in Information Technology undergraduate at Davao del Norte State College.
 
-*Where organized ideas grow into meaningful work.*
+The current design uses a dark interface, bold typography, restrained green/blue/violet accents, and separate Home, About, Works, Certificates, and Contact pages. Its visual and navigation direction was informed by [Djembar Arafat’s portfolio reference](https://dribbble.com/shots/26918205-Next-js-Portfolio-Website-Series-Dark-UI); the implementation, portrait, content, and project imagery belong to this portfolio. No imagery or personal claims from the reference are reused.
 
-This project migrates the existing `2d1e3th/updated-cv` portfolio to React and Vite. Verified profile information and the original portrait are preserved. No employment, certificates, awards, project outcomes, or graduation dates have been invented.
+Verified personal details, the original portrait, and the supplied PDF CV are preserved. No employment, awards, certificates, project results, or graduation dates are invented.
 
 ## Student
 
-- **May Antonette A. Alterado**
+- May Antonette A. Alterado
 - Bachelor of Science in Information Technology
 - Davao del Norte State College
-- 4th Year / Undergraduate — supported by the original repository README
+- 4th Year / Undergraduate, supported by the original repository README
 - Philippines
 
 ## Technologies Used
 
-- React and JavaScript
-- Vite
-- Tailwind CSS with custom editorial styles
+- React, JavaScript, and Vite
+- Tailwind CSS with custom responsive styles
 - Framer Motion
 - Lucide React
 - Public GitHub REST API
-- Vercel deployment configuration
+- Vercel
+
+The reference’s Next.js implementation is not a dependency; this repository retains its working React/Vite stack.
 
 ## Main Features
 
-- Responsive layouts for mobile, tablet, and desktop
-- Interactive Field Notes chapter navigation and reading progress
-- Subtle animated growth path and brief, non-blocking entrance note
-- Career objective, Quick Notes, and academic timeline
-- Interactive skills knowledge map; button-controlled accordions on mobile
-- Project case files with accessible native modal dialogs
-- Live GitHub repository metadata with timeout and saved-data fallback
-- Expandable milestone register and honest experience preparation state
-- Animated working rhythm and validated email-draft contact form
-- Dedicated `/cv` page with A4 print mode
-- Searchable Ctrl/Cmd+K command palette with arrow-key navigation
-- Visible keyboard focus, skip link, and reduced-motion support
-- Responsive WebP portrait assets; original JPEG retained in `public/assets`
+- Floating navigation with active-page indication and a keyboard-accessible mobile menu
+- Client-side page transitions with browser Back/Forward support
+- Dark theme by default and a saved light-theme preference
+- Responsive portrait, foundational skill links, and interactive capability cards
+- About page with career objective, Quick Notes, education, skills map, involvement, and working rhythm
+- Verified project case file with accessible modal and an actual website screenshot
+- Public GitHub metadata with an eight-second timeout and saved fallback
+- Honest expandable certificates and milestones register
+- Contact form with accessible validation and email-draft preparation
+- Ctrl/Cmd+K searchable navigation
+- Original PDF CV download and a separate printable `/cv` page
+- Reduced-motion support, visible focus, semantic headings, and skip link
+
+## Pages
+
+| URL | Contents |
+| --- | --- |
+| `/` | Introduction, foundations, strengths, featured project |
+| `/about` | Profile details, objective, education, skills, involvement, process |
+| `/works` | Verified case study and public GitHub repositories |
+| `/certificates` | Editable verified-credentials register |
+| `/contact` | Contact options and email-draft form |
+| `/cv` | Simple HTML CV with A4 print mode |
+| `/documents/May-Antonette-Alterado-CV.pdf` | Original uploaded CV |
+
+Legacy links such as `/#skills`, `/#education`, and `/#projects` lead to their corresponding page sections. `/cv.html` remains a compatibility route.
 
 ## Running Locally
 
-Use Node.js **22.12+** (or a version supported by the locked Vite release).
+Use Node.js **22.12+** or another version supported by the locked Vite release.
 
 ```sh
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite. The default is `http://127.0.0.1:5173`. This React application must be served through Vite; opening `index.html` directly as a file does not run the application.
-
-For a production check:
+Open the local URL printed by Vite, normally `http://127.0.0.1:5173`. Opening the source `index.html` directly from the filesystem does not run the application.
 
 ```sh
 npm run build
 npm run preview
 ```
 
-The build is generated in `dist/`. Open `/cv` to view the CV and use **Print / Save as PDF**. `/cv.html` remains supported as a compatibility route.
+The production application is generated in `dist/`. The preview server normally uses port 4173.
 
 ## Deployment
 
-Import this existing GitHub repository into Vercel and deploy the branch containing the migration:
+The existing Vercel project is connected to the GitHub `main` branch. Pushing completed changes to `main` triggers an automatic deployment.
 
-- Framework preset: **Vite**
-- Install command: `npm install`
-- Build command: `npm run build`
-- Output directory: `dist`
-- Environment variables: **none required**
+- Framework: Vite
+- Install: `npm install`
+- Build: `npm run build`
+- Output: `dist`
+- Required environment variables: none
 
-`vercel.json` configures the build and rewrites `/cv` and `/cv.html` to the application entry point. Static assets are served from `public/` during development and copied into `dist/` during builds.
-
-A local production preview verifies the generated application. It does not publish it to Vercel. Push and deploy this branch when ready; no deployment has been initiated by this migration.
+`vercel.json` includes explicit rewrites for the application pages and both HTML CV URLs so direct visits and browser refreshes work. PDF and image assets remain ordinary static files.
 
 ## Live Website
 
-Live URL: Add after Vercel deployment
+[updated-cv-psi.vercel.app](https://updated-cv-psi.vercel.app/)
 
-## Updating the Fieldbook
+## Maintaining Content
 
-| File | Content |
+| File | Purpose |
 | --- | --- |
-| `src/data/profile.js` | Profile, links, career objective, skills, interests, chapter labels |
-| `src/data/projects.js` | Verified case studies, contribution, tools, status, screenshot and links |
-| `src/data/repositories.js` | Verified offline GitHub metadata and relevance ordering |
-| `src/data/achievements.js` | Credentials and milestone categories |
-| `src/data/experience.js` | Verified involvement timeline entries |
-| `src/sections/Profile.jsx` | Senior High School fields awaiting confirmation |
-| `src/index.css` | Design tokens, responsive layouts, and print styles |
-| `public/assets/` | Portrait source, responsive images, and actual portfolio screenshot |
+| `src/data/profile.js` | Personal information, objective, social links, skills, interests |
+| `src/data/projects.js` | Verified project details, contribution, tools, status, screenshots, links |
+| `src/data/repositories.js` | Saved GitHub metadata and relevance ordering |
+| `src/data/achievements.js` | Verified credentials and categories |
+| `src/data/experience.js` | Verified involvement entries |
+| `src/sections/Profile.jsx` | About layout and pending Senior High School fields |
+| `src/sections/Home.jsx` | Homepage introduction, foundations, and strengths |
+| `src/hooks/useNavigation.js` | Page navigation, legacy bookmarks, and focus behavior |
+| `src/index.css` | Shared dark/light tokens, layouts, interactions, and print styles |
+| `public/assets/` | Original JPEG, responsive WebP portraits, and actual portfolio screenshot |
+| `public/documents/May-Antonette-Alterado-CV.pdf` | Original supplied PDF CV |
 
-The CV reads the same profile, skills, projects, achievements, and experience data, so those edits stay consistent. Empty Facebook and Instagram URLs are automatically hidden. Add only confirmed links and information.
+The generated HTML CV uses the same content data as the site. The original PDF is preserved separately: overwrite that file to update the PDF, and update the site data when its content changes. PDF contents do not synchronize automatically.
 
-Project entries support `name`, `category`, `description`, `overview`, `problem`, `contribution`, `technologies`, `status`, `github`, `demo`, `screenshot`, and `screenshotAlt`. Use `null` for unavailable demos or screenshots. Further case studies require verified details; repository existence alone does not establish a personal contribution.
+Achievement entries support `{ id, category, title, issuer, year, description, url }`. Experience entries support `{ id, year, role, activity, organization, description, skills }`. Both arrays start empty intentionally. Empty Facebook and Instagram links stay hidden.
 
-Achievement entries support `{ id, category, title, issuer, year, description, url }`. Experience entries support `{ id, year, role, activity, organization, description, skills }`. Both arrays start empty intentionally.
+## GitHub and Contact
 
-## GitHub and Contact Behavior
+Public repositories are fetched without a token from `https://api.github.com/users/2d1e3th/repos?per_page=100`. Relevant original repositories are prioritized. Forks, archived repositories, and unrelated personal pages are excluded. Unavailable APIs, rate limits, and timeouts use a verified saved snapshot. Repository metadata does not establish a personal contribution or completed case study.
 
-GitHub data is fetched without a token from `https://api.github.com/users/2d1e3th/repos?per_page=100`. Relevant original repositories are prioritized; forks, archived repositories, profile configuration, and unrelated personal pages are excluded. API failures, rate limits, malformed top-level responses, and an eight-second timeout use a verified snapshot. Missing repository descriptions and languages are handled without inventing details.
+The contact form trims and validates required fields, then opens a `mailto:` draft. It does not send or store messages. The visitor must have an email application configured and review and send the draft. A direct email link is always available.
 
-The contact form trims and validates required fields, then opens a `mailto:` draft. It does **not** send or store messages. Visitors need an email application configured and must review and send the draft themselves. A direct email link remains available.
+## Verification
 
-## Validation and Development History
-
-See [QA notes](docs/QA.md) for the tested behavior and remaining deployment limits. Development is recorded as separate migration, design, content, interaction, API, CV, accessibility, and documentation commits. Existing history has not been rewritten.
-
-## Uploaded CV
-
-The original one-page CV supplied by Antonette is available at `public/documents/May-Antonette-Alterado-CV.pdf`. Header, hero, and command-palette **View CV** links open that PDF. The hero also provides a **Download CV** link. The generated `/cv` print view remains available and includes a link to download the original PDF.
-
-To replace the uploaded CV later, overwrite the PDF at the same path. Its contents are not automatically synchronized with the website’s profile data.
+See [QA notes](docs/QA.md). Development is recorded in meaningful commits without replacing the repository’s previous history.

@@ -1,40 +1,29 @@
-# Digital Fieldbook — QA record
+# Portfolio QA — dark multi-page redesign
 
-Verified locally on 24 October 2026 using headless Microsoft Edge / Playwright and the Vite development and production servers.
+Verified locally on 24 October 2026 using Vite and Microsoft Edge / Playwright.
 
-## Build and assets
+## Checks
 
-- `npm install`: succeeds; dependency audit reports zero vulnerabilities at verification time.
-- `npm run dev`: serves successfully.
-- `npm run build`: generates the Vite `dist` application.
-- Original JPEG preserved; responsive 360px and 720px WebP derivatives load.
-- Project screenshot depicts the actual Fieldbook interface, not a fictional project.
-- No conflict markers, duplicate IDs, broken section anchors, or React/page errors were detected.
+- Production build completes; the existing React/Vite dependencies are retained.
+- Five main pages each have one H1 and no duplicate IDs.
+- Each page checked at 320, 360, 375, 390, 430, 640, 768, 820, 1024, and 1440px: no horizontal document overflow.
+- Page navigation preserves the running application; browser Back/Forward work.
+- Mobile menu: first-link focus, Tab order, Escape, link selection, and outside-click closure.
+- Theme toggle switches dark/light styles and retains the choice across reloads.
+- Ctrl/Cmd+K: search, keyboard selection, cross-page section targets, empty results, Escape.
+- Skills accordion responds to touch and keyboard activation.
+- Project dialog contains focus, closes on Escape, and returns focus to its opener.
+- Failed GitHub requests use four saved verified repository records.
+- Credentials register displays an honest empty state.
+- Contact validation rejects empty and whitespace-only values and invalid email addresses, trims input, and displays accurate draft feedback.
+- Original PDF served successfully as application/pdf, with unchanged 70,889-byte content.
+- HTML CV print controls are hidden; current content fits one A4 page.
+- Legacy bookmarks redirect to the matching new page and section.
+- Reduced-motion rendering and all five desktop/mobile page layouts reviewed.
+- No React/page errors during these checks.
 
-## Layout
+## Deployment
 
-No horizontal document overflow at **320, 360, 375, 390, 430, 768, 820, 1024, 1440, or 1920px**. Mobile hero stacks, the skills map becomes accordions, the project dialog becomes a full-screen sheet, and chapter navigation simplifies into a progress strip.
+Explicit Vercel rewrites cover `/about`, `/works`, `/certificates`, `/contact`, `/cv`, and `/cv.html`. Image and PDF URLs remain static assets. The production build and deployment are checked separately before publishing is reported as complete.
 
-## Interactions
-
-- Mobile menu opens and closes; Escape, link activation, and outside clicks close it.
-- Menu opening moves focus to the first link; Escape restores the toggle.
-- Skills expand through buttons and keyboard activation, with no hover-only requirement.
-- Case-file dialog contains focus, closes on Escape, and restores its opener.
-- Ctrl+K and Cmd+K open the command palette; searching, arrow keys, Enter, no-result searches, and Escape are handled.
-- Navigation targets match the eight chapter sections; active chapters update during scrolling.
-- Milestone register expands to an honest empty state.
-- Contact validation rejects empty/whitespace-only fields and invalid email addresses, trims values, and gives accurate email-draft feedback.
-- Reduced-motion preference disables entrance/reveal movement and growth-path animation.
-
-## GitHub
-
-Both failure and successful API responses were tested. Failure uses saved metadata. Success prioritizes relevant repositories and excludes forks. Live metadata remains separate from verified case studies and personal contribution claims.
-
-## CV
-
-`/cv` renders all eight sections: Profile, Career Objective, Education, Skills, Projects, Achievements, Experience, and Contact. Print controls disappear during printing. The exported A4 output was rendered to an image and visually reviewed; the current content fits one clean page with readable dark text and no orphaned second page.
-
-## Boundaries
-
-Vercel configuration targets `npm run build`, `dist`, and CV route rewrites. Local production serving can be checked without a Vercel account. A public Vercel deployment has not been performed or verified. Browser tests do not prove that a visitor has a configured email client, and no message delivery is claimed. No Lighthouse score is claimed.
+No Lighthouse score is claimed. Website validation does not guarantee a visitor has an email application configured, and no actual message delivery is claimed.
