@@ -1,19 +1,11 @@
-import { useRef, useState } from "react";
-import { ChevronDown, PawPrint, X } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, PawPrint } from "lucide-react";
 
 export default function PersonalPhotos() {
   const [open, setOpen] = useState(false);
-  const disclosure = useRef(null);
-
-  function closePhotos() {
-    if (!disclosure.current) return;
-    disclosure.current.open = false;
-    disclosure.current.querySelector("summary")?.focus();
-  }
 
   return (
     <details
-      ref={disclosure}
       className="personal-photos"
       onToggle={(event) => setOpen(event.currentTarget.open)}
     >
@@ -23,7 +15,6 @@ export default function PersonalPhotos() {
         <ChevronDown size={14} aria-hidden="true" />
       </summary>
       {open && (
-        <>
         <div className="personal-photo-grid">
           <img
             src="/assets/favorite-dogs-01.webp"
@@ -38,11 +29,6 @@ export default function PersonalPhotos() {
             height="1692"
           />
         </div>
-        <button className="close-personal-photos" type="button" onClick={closePhotos}>
-          <X size={15} aria-hidden="true" />
-          Close photos
-        </button>
-        </>
       )}
     </details>
   );

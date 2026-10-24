@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
 import Layout from "./components/Layout";
 import CommandPalette from "./components/CommandPalette";
 import { About, Education } from "./sections/Profile";
@@ -27,10 +26,6 @@ const titles = {
 function PageIntro({ eyebrow, title, copy }) {
   return (
     <div className="page-width page-intro">
-      <a className="back-home" href="/">
-        <ArrowLeft size={16} aria-hidden="true" />
-        Back to Home
-      </a>
       <p className="eyebrow">{eyebrow}</p>
       <h1>{title}</h1>
       <p>{copy}</p>
