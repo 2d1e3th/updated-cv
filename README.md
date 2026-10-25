@@ -4,7 +4,7 @@
 
 A responsive portfolio and CV for **May Antonette A. Alterado**, a Bachelor of Science in Information Technology undergraduate at Davao del Norte State College.
 
-The current design uses a dark interface, bold typography, restrained green/blue/violet accents, and separate Home, About, Works, Certificates, and Contact pages. Its visual and navigation direction was informed by [Djembar Arafat’s portfolio reference](https://dribbble.com/shots/26918205-Next-js-Portfolio-Website-Series-Dark-UI); the implementation, portrait, content, and project imagery belong to this portfolio. No imagery or personal claims from the reference are reused.
+The current design uses a dark interface, bold typography, restrained green/blue/violet accents, and separate Home, About, Works, Certificates, and Contact pages. Its visual and navigation direction was informed by [a portfolio design reference](https://dribbble.com/shots/26918205-Next-js-Portfolio-Website-Series-Dark-UI); the implementation, portrait, content, and project imagery belong to this portfolio. No imagery or personal claims from the reference are reused.
 
 Verified personal details, the original portrait, and the supplied PDF CV are preserved. No employment, awards, certificates, project results, or graduation dates are invented.
 
