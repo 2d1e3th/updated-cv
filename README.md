@@ -2,18 +2,18 @@
 
 ## About
 
-A responsive portfolio and CV for **May Antonette A. Alterado**, a Bachelor of Science in Information Technology undergraduate at Davao del Norte State College.
+I’m **May Antonette A. Alterado**, a Bachelor of Science in Information Technology undergraduate at Davao del Norte State College, studying from **2023–Present**.
 
-The current design uses a dark interface, bold typography, restrained green/blue/violet accents, and separate Home, About, Works, Certificates, and Contact pages. Its visual and navigation direction was informed by [a portfolio design reference](https://dribbble.com/shots/26918205-Next-js-Portfolio-Website-Series-Dark-UI); the implementation, portrait, content, and project imagery belong to this portfolio. No imagery or personal claims from the reference are reused.
+My interests include documentation, research, data management, digital productivity, and web technologies. I value organization, attention to detail, and collaboration, and I’m continuing to develop my technical and problem-solving skills.
 
-Verified personal details, the original portrait, and the supplied PDF CV are preserved. No employment, awards, certificates, project results, or graduation dates are invented.
+This portfolio shares my educational background, skills, projects, and CV as I prepare for internships and opportunities to gain practical experience in Information Technology.
 
 ## Student
 
 - May Antonette A. Alterado
 - Bachelor of Science in Information Technology
 - Davao del Norte State College
-- 4th Year / Undergraduate, supported by the original repository README
+- 2023–Present
 - Philippines
 
 ## Technologies Used
@@ -24,8 +24,6 @@ Verified personal details, the original portrait, and the supplied PDF CV are pr
 - Lucide React
 - Public GitHub REST API
 - Vercel
-
-The reference’s Next.js implementation is not a dependency; this repository retains its working React/Vite stack.
 
 ## Main Features
 
