@@ -4,6 +4,7 @@ export const profile = {
   program: "Bachelor of Science in Information Technology",
   institution: "Davao del Norte State College",
   level: "4th Year / Undergraduate",
+  educationYears: "2023–Present",
   location: "Philippines",
   objective:
     "To develop my skills as an Information Technology professional by gaining practical experience in digital systems, documentation, data management, web technologies, and collaborative problem-solving while contributing reliable and organized work.",

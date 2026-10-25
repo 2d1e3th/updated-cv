@@ -112,7 +112,7 @@ export function Education() {
               <div>
                 <span className="status-label">
                   <span className="h-1.5 w-1.5 rounded-full bg-aubergine" />
-                  {profile.level}
+                  {profile.educationYears}
                 </span>
                 <p>Current academic path</p>
               </div>

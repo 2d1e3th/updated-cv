@@ -59,7 +59,7 @@ export default function CV() {
           <h2>Education</h2>
           <h3>{profile.program}</h3>
           <p>
-            {profile.institution} · {profile.level}
+            {profile.institution} · {profile.educationYears}
           </p>
           {previousEducation.map((entry) => (
             <p key={entry.id}>
