@@ -39,7 +39,7 @@ export const projects = [
     ],
     status: "In development",
     github: "https://github.com/2d1e3th/updated-cv",
-    demo: null,
+    demo: "https://updated-cv-psi.vercel.app/",
     screenshot: "/assets/fieldbook-preview.webp",
     screenshotAlt:
       "Desktop preview of Antonette’s portfolio with a personal introduction and portrait",

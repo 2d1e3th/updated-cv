@@ -158,7 +158,7 @@ export default function Projects({ featured = false }) {
                 GitHub <ArrowUpRight size={16} aria-hidden="true" />
               </a>}
               {selected.demo ? (
-                <a className="text-link" href={selected.demo}>
+                <a className="text-link" href={selected.demo} target="_blank" rel="noopener noreferrer">
                   <ExternalLink size={15} />
                   Live Demo
                 </a>
