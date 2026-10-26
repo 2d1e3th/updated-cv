@@ -91,11 +91,11 @@ export default function CV() {
               </h3>
               <p>{project.description}</p>
               <p>{project.contribution}</p>
-              <p>
+              {project.github && <p>
                 <a href={project.github}>
                   {project.github.replace("https://", "")}
                 </a>
-              </p>
+              </p>}
             </div>
           ))}
         </section>

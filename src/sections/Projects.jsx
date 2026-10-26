@@ -31,7 +31,7 @@ export default function Projects({ featured = false }) {
                 <>
                   {featured ? (
                     <>
-                      Featured <em>project.</em>
+                      Featured <em>projects.</em>
                     </>
                   ) : (
                     <>
@@ -73,6 +73,7 @@ export default function Projects({ featured = false }) {
                 </div>
               </div>
               <div className="case-file-copy">
+                {project.coverNote && <p className="eyebrow">{project.coverNote}</p>}
                 <p className="eyebrow">{project.category}</p>
                 <ProjectTitle>{project.name}</ProjectTitle>
                 <p>{project.description}</p>
@@ -147,22 +148,22 @@ export default function Projects({ featured = false }) {
                 </div>
               ))}
               <div>
-                <h3>Tools Used</h3>
+                <h3>{selected.toolsLabel || "Tools Used"}</h3>
                 <Tags items={selected.technologies} />
               </div>
             </div>
             <div className="case-links">
-              <a className="button" href={selected.github}>
+              {selected.github && <a className="button" href={selected.github}>
                 <Github size={16} aria-hidden="true" />
                 GitHub <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
+              </a>}
               {selected.demo ? (
                 <a className="text-link" href={selected.demo}>
                   <ExternalLink size={15} />
                   Live Demo
                 </a>
               ) : (
-                <p>Live demo / Add after deployment</p>
+                <p>Live demo not yet available.</p>
               )}
             </div>
           </>
