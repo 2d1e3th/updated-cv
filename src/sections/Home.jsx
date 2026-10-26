@@ -59,8 +59,8 @@ export function Profile() {
           </p>
           <p className="hero-intro">{profile.introduction}</p>
           <div className="hero-actions">
-            <a href="/contact" className="button">
-              Let’s connect <ArrowRight size={17} aria-hidden="true" />
+            <a href="/works" className="button">
+              Explore my work <ArrowRight size={17} aria-hidden="true" />
             </a>
             <a
               href="/cv"
@@ -175,25 +175,6 @@ export function Capabilities() {
             );
           })}
         </div>
-      </Reveal>
-    </section>
-  );
-}
-export function ConnectCTA() {
-  return (
-    <section className="page-width connect-banner">
-      <Reveal>
-        <p className="eyebrow">GROWING, ONE OPPORTUNITY AT A TIME</p>
-        <h2>
-          Have something <em>in mind?</em>
-        </h2>
-        <p>
-          I’m open to internships, collaborative projects, and opportunities to
-          learn.
-        </p>
-        <a href="/contact" className="button">
-          Let’s talk <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
       </Reveal>
     </section>
   );

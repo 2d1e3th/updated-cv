@@ -184,10 +184,10 @@ export default function Layout({ children, onCommand, path }) {
               Building what comes next.
             </p>
           </div>
-          <a href="/contact" className="footer-contact">
-            Let’s connect{" "}
+          {path !== "/contact" && <a href="/contact" className="footer-contact">
+            Contact{" "}
             <ArrowUpRight size={22} strokeWidth={1.5} aria-hidden="true" />
-          </a>
+          </a>}
         </div>
         <div className="footer-meta">
           <span>© {new Date().getFullYear()} May Antonette A. Alterado</span>

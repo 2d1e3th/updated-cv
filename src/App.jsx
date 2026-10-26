@@ -7,7 +7,6 @@ import {
   Profile,
   Foundations,
   Capabilities,
-  ConnectCTA,
 } from "./sections/Home";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
@@ -65,7 +64,6 @@ export default function App() {
         <Foundations />
         <Capabilities />
         <Projects featured />
-        <ConnectCTA />
       </>
     );
   else if (path === "/about")
@@ -87,7 +85,6 @@ export default function App() {
         <Skills />
         <Experience />
         <WorkingRhythm />
-        <ConnectCTA />
       </>
     );
   else if (path === "/works")
@@ -104,7 +101,6 @@ export default function App() {
         />
         <Projects />
         <GitHubRepositories />
-        <ConnectCTA />
       </>
     );
   else if (path === "/certificates")
@@ -121,7 +117,6 @@ export default function App() {
           copy="A growing record of verified certificates, seminars, training, and academic milestones."
         />
         <Achievements />
-        <ConnectCTA />
       </>
     );
   else if (path === "/contact")
