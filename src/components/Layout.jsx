@@ -8,6 +8,7 @@ import {
   Sun,
   Moon,
   ArrowRight,
+  FileText,
 } from "lucide-react";
 import { profile } from "../data/profile";
 
@@ -138,11 +139,10 @@ export default function Layout({ children, onCommand, path }) {
             <span>K</span>
           </button>
           <a
-            className="button button-small"
-            href="/contact"
-            aria-current={path === "/contact" ? "page" : undefined}
+            className="button button-small cv-spotlight"
+            href="/cv"
           >
-            Contact me <ArrowUpRight size={14} aria-hidden="true" />
+            <FileText size={15} aria-hidden="true" /> View CV
           </a>
           <button
             className="icon-button theme-toggle"
@@ -192,7 +192,7 @@ export default function Layout({ children, onCommand, path }) {
         <div className="footer-meta">
           <span>© {new Date().getFullYear()} May Antonette A. Alterado</span>
           <span>Based in {profile.location}</span>
-          <a href="/documents/May-Antonette-Alterado-CV.pdf">
+          <a href="/cv">
             View CV <ArrowRight size={13} aria-hidden="true" />
           </a>
         </div>

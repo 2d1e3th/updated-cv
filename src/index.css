@@ -1252,6 +1252,35 @@ svg {
   font-size: 10px;
   margin-top: 20px;
 }
+.cv-spotlight {
+  background: #a5e4cd;
+  color: #10231e;
+  border: 1px solid #a5e4cd;
+  box-shadow: 0 4px 22px #72d4b22b;
+  font-weight: 700;
+}
+.cv-spotlight:hover {
+  background: #c5f3e2;
+  color: #10231e;
+}
+.credential-card + .credential-card {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+.credential-preview {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+.credential-card h3 { margin-block: 12px; }
+.credential-card > p { max-width: 720px; margin-bottom: 12px; }
+.credential-links { display: flex; flex-wrap: wrap; gap: 16px 26px; margin-top: 20px; }
+.register-body > .tags { margin-top: 32px; }
 /* Milestones and involvement: no invented credentials or employment. */
 .milestone-icon {
   color: var(--accent);

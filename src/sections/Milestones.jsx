@@ -40,27 +40,31 @@ export function Achievements() {
               aria-hidden="true"
             />
           </SectionHeading>
-          <details className="milestone-register">
+          <details className="milestone-register" open>
             <summary>
               <div>
                 <span className="eyebrow">THE MILESTONE REGISTER</span>
-                <h3>A record of learning along the way.</h3>
+                <h3>Certificates &amp; completed learning.</h3>
               </div>
               <span className="register-action">
-                Explore the register{" "}
+                {achievements.length} learning milestones{" "}
                 <ChevronDown size={17} aria-hidden="true" />
               </span>
             </summary>
             <div className="register-body">
               {achievements.length ? (
                 achievements.map((item) => (
-                  <article key={item.id}>
+                  <article className="credential-card" key={item.id}>
+                    {item.image && <a href={item.documents[0].url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${item.title} certificate`}><img className="credential-preview" src={item.image} alt={`${item.title} completion certificate`} loading="lazy" width="1000" height="707" /></a>}
                     <p className="eyebrow">
                       {item.category} / {item.year}
                     </p>
                     <h3>{item.title}</h3>
                     <p>{item.issuer}</p>
                     <p>{item.description}</p>
+                    <div className="credential-links">
+                      {item.documents?.map((document) => <a className="text-link" href={document.url} key={document.url} target="_blank" rel="noopener noreferrer">{document.label} ↗</a>)}
+                    </div>
                     {item.url && (
                       <a className="text-link" href={item.url}>
                         View credential

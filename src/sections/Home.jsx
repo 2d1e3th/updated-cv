@@ -63,11 +63,10 @@ export function Profile() {
               Let’s connect <ArrowRight size={17} aria-hidden="true" />
             </a>
             <a
-              href="/documents/May-Antonette-Alterado-CV.pdf"
-              className="download-link"
-              download="May-Antonette-Alterado-CV.pdf"
+              href="/cv"
+              className="button cv-spotlight"
             >
-              Download CV <ArrowDown size={15} aria-hidden="true" />
+              <FileText size={18} aria-hidden="true" /> View CV <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           </div>
           <SocialLinks />
