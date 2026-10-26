@@ -1268,6 +1268,18 @@ svg {
   padding-top: 36px;
   border-top: 1px solid var(--line);
 }
+.certificate-gallery { max-width: 740px; margin-bottom: 24px; }
+.certificate-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; border-radius: 10px; scrollbar-width: thin; overscroll-behavior-x: contain; }
+.certificate-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; background: #f7f7f7; display: flex; align-items: center; }
+.certificate-slide img { display: block; width: 100%; height: auto; max-height: 570px; object-fit: contain; }
+.certificate-gallery-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 12px; }
+.certificate-gallery-controls button { min-width: 40px; min-height: 40px; }
+.certificate-gallery-controls button:disabled { opacity: .3; cursor: default; }
+.certificate-pages { display: flex; }
+.certificate-pages button { background: none; border: 0; display: grid; place-items: center; }
+.certificate-pages span { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.certificate-pages [aria-pressed="true"] span { background: var(--accent); box-shadow: 0 0 0 4px #8cd5b022; }
+.certificate-counter, .certificate-swipe-hint { font-size: 12px; color: var(--muted); }
 .credential-preview {
   display: block;
   width: 100%;

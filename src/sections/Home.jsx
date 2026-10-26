@@ -96,10 +96,6 @@ export function Profile() {
           <span className="portrait-badge">
             <GraduationCap size={18} aria-hidden="true" />
           </span>
-          <div className="portrait-note">
-            <span className="small-dot" />
-            4th Year / Undergraduate
-          </div>
         </motion.div>
       </div>
     </section>

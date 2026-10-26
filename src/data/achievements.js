@@ -19,8 +19,8 @@ export const achievements = [
     description: "Completed the course covering VLANs, inter-VLAN routing, STP, EtherChannel, wireless LANs, switch security, and IPv4/IPv6 static routing.",
     image: "/assets/certificates/cisco-srwe.webp",
     documents: [
-      { label: "View course certificate", url: "/documents/certificates/cisco-srwe-course.pdf" },
-      { label: "View student credential", url: "/documents/certificates/cisco-srwe-credential.pdf" },
+      { label: "View course certificate", url: "/documents/certificates/cisco-srwe-course.pdf", image: "/assets/certificates/cisco-srwe.webp" },
+      { label: "View student credential", url: "/documents/certificates/cisco-srwe-credential.pdf", image: "/assets/certificates/cisco-srwe-credential.webp" },
     ],
   },
 ];

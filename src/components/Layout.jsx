@@ -8,7 +8,7 @@ import {
   Sun,
   Moon,
   ArrowRight,
-  FileText,
+  Mail,
 } from "lucide-react";
 import { profile } from "../data/profile";
 
@@ -140,9 +140,12 @@ export default function Layout({ children, onCommand, path }) {
           </button>
           <a
             className="button button-small cv-spotlight"
-            href="/cv"
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}&su=${encodeURIComponent("Let's talk — Portfolio inquiry")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Let’s talk — open a Gmail draft in a new tab"
           >
-            <FileText size={15} aria-hidden="true" /> View CV
+            <Mail size={15} aria-hidden="true" /> Let’s talk
           </a>
           <button
             className="icon-button theme-toggle"

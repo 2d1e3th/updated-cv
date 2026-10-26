@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 import {
   Award,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Sprout,
   Circle,
   GitBranch,
@@ -13,6 +15,37 @@ import { achievements, achievementCategories } from "../data/achievements";
 import { experience } from "../data/experience";
 import { rhythm } from "../data/profile";
 import { Reveal, SectionHeading, Tags } from "../components/Shared";
+
+function CertificateGallery({ item }) {
+  const track = useRef(null);
+  const [active, setActive] = useState(0);
+  const documents = item.documents.map((document) => ({ ...document, image: document.image || item.image }));
+  const goTo = (index) => {
+    const element = track.current;
+    element.scrollTo({ left: element.clientWidth * index, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
+  return (
+    <div className="certificate-gallery" role="region" aria-label={`${item.title} documents`}>
+      <div className="certificate-track" ref={track} tabIndex={0} aria-label="Certificate previews. Swipe or use arrow keys." onKeyDown={(event) => {
+        if (["ArrowLeft", "ArrowRight"].includes(event.key)) {
+          event.preventDefault();
+          goTo(Math.max(0, Math.min(documents.length - 1, active + (event.key === "ArrowRight" ? 1 : -1))));
+        }
+      }} onScroll={(event) => setActive(Math.round(event.currentTarget.scrollLeft / event.currentTarget.clientWidth))}>
+        {documents.map((document) => <a className="certificate-slide" href={document.url} key={document.url} target="_blank" rel="noopener noreferrer" aria-label={`${document.label} — ${item.title}`}>
+          <img src={document.image} alt={`${item.title} — ${document.label}`} loading="lazy" width="1000" height="707" />
+        </a>)}
+      </div>
+      {documents.length > 1 && <div className="certificate-gallery-controls">
+        <button className="icon-button" aria-label="Previous certificate" disabled={active === 0} onClick={() => goTo(active - 1)}><ChevronLeft size={19} /></button>
+        <div className="certificate-pages">{documents.map((document, index) => <button key={document.url} aria-label={`Show ${document.label.toLowerCase()}`} aria-pressed={active === index} onClick={() => goTo(index)}><span /></button>)}</div>
+        <span className="certificate-counter" aria-live="polite">{active + 1} / {documents.length}</span>
+        <button className="icon-button" aria-label="Next certificate" disabled={active === documents.length - 1} onClick={() => goTo(active + 1)}><ChevronRight size={19} /></button>
+        <span className="certificate-swipe-hint">Swipe to see both documents</span>
+      </div>}
+    </div>
+  );
+}
 
 export function Achievements() {
   return (
@@ -55,7 +88,7 @@ export function Achievements() {
               {achievements.length ? (
                 achievements.map((item) => (
                   <article className="credential-card" key={item.id}>
-                    {item.image && <a href={item.documents[0].url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${item.title} certificate`}><img className="credential-preview" src={item.image} alt={`${item.title} completion certificate`} loading="lazy" width="1000" height="707" /></a>}
+                    {item.image && <CertificateGallery item={item} />}
                     <p className="eyebrow">
                       {item.category} / {item.year}
                     </p>
